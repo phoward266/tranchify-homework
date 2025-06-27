@@ -1,12 +1,13 @@
 import './App.css'
+import { LoginView } from './views/LoginView'
+import { DashboardView } from './views/DashboardView'
+import { auth } from './utils/auth'
 
 function App() {
-  return (
-    <div>
-      {/* Router here later */}
-      <h1>Tranchify Frontend</h1>
-    </div>
-  )
+  if (auth.isAuthenticated()) {
+    return <DashboardView />
+  }
+  return <LoginView />
 }
 
 export default App
