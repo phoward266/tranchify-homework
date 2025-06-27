@@ -1,14 +1,11 @@
 import { Result, Button } from 'antd';
-// import { useNavigate } from 'react-router-dom'; // uncomment when router is set up
+import { useNavigate } from 'react-router-dom';
 
 export const NotFoundView = () => {
-  // const navigate = useNavigate(); // uncomment when router is set up
+  const navigate = useNavigate();
 
   const handleBackHome = () => {
-    // navigate('/dashboard'); // uncomment when router is set up
-    console.log('Would navigate to dashboard');
-    // Temporary solution
-    window.location.href = '/';
+    navigate('/dashboard');
   };
 
   return (

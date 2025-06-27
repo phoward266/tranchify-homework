@@ -1,13 +1,9 @@
-import './App.css'
-import { LoginView } from './views/LoginView'
-import { DashboardView } from './views/DashboardView'
-import { auth } from './utils/auth'
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes/router';
+import './App.css';
 
 function App() {
-  if (auth.isAuthenticated()) {
-    return <DashboardView />
-  }
-  return <LoginView />
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

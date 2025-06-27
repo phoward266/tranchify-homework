@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom'; // uncomment when router is set up
+import { useNavigate } from 'react-router-dom';
 import { Form, Input, Button, Card, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { auth } from '../utils/auth';
@@ -10,28 +10,22 @@ interface LoginFormValues {
 }
 
 export const LoginView = () => {
-  // const navigate = useNavigate(); // uncomment when router is set up
+  const navigate = useNavigate();
   const [form] = Form.useForm();
 
   // Check if alr logged in
   useEffect(() => {
     if (auth.isAuthenticated()) {
-      // navigate('/dashboard', { replace: true }); // uncomment
-      console.log('User already logged in - would redirect to dashboard');
+      navigate('/dashboard', { replace: true });
     }
-  }, []);
+  }, [navigate]);
 
   const onFinish = (values: LoginFormValues) => {
     const success = auth.login(values.username, values.password);
     
     if (success) {
       message.success('Login successful!');
-      // navigate('/dashboard'); // uncomment when router is set up
-      console.log('Login successful - would navigate to dashboard');
-      // Temporary: refresh page to show dashboard
-      setTimeout(() => {
-        window.location.reload();
-      }, 500); // Small delay to show success message - authentic vibe
+      navigate('/dashboard');
     } else {
       message.error('Please enter username and password');
     }

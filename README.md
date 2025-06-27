@@ -1,69 +1,78 @@
-# React + TypeScript + Vite
+# Tranchify Frontend Homework
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple authentication and dashboard application built with React, TypeScript, and Ant Design.
 
-Currently, two official plugins are available:
+## Quick Start:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+# Clone the repository
+git clone https://github.com/phoward266/tranchify-homework.git
+cd tranchify-homework
 
-## Expanding the ESLint configuration
+# Install dependencies
+npm install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application will be available at `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## What I Implemented
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Core Features
+
+1. **Authentication System**
+
+   - Login view with username/password fields using Ant Design Form
+   - Form validation for required fields
+   - User session stored in localStorage
+   - Authentication check on protected routes
+   - Automatic redirect if already logged in
+
+2. **Dashboard View**
+
+   - Protected route (requires authentication)
+   - Ant Design Layout with Header component
+   - Welcome message showing logged-in username
+   - Data table displaying sample Tranchify information
+   - Logout functionality that clears session and redirects
+
+3. **Routing (React Router v7)**
+
+   - `/` - Redirects to dashboard
+   - `/login` - Login page (redirects to dashboard if already authenticated)
+   - `/dashboard` - Protected dashboard page
+   - `*` - 404 Not Found page
+   - Smooth SPA navigation without page refreshes
+
+4. **Project Structure**
+   ```
+   src/
+   ├── components/
+   │   ├── Layout/
+   │       └── ProtectedRoute.tsx
+   ├── views/
+   │   ├── LoginView.tsx
+   │   ├── DashboardView.tsx
+   │   └── NotFoundView.tsx
+   ├── routes/
+   │   └── router.tsx
+   ├── utils/
+   │   └── auth.ts
+   └── App.tsx
+   ```
+
+## Tech Stack
+
+- **React** 19.x - UI framework
+- **TypeScript** 5.x - Type safety
+- **Vite** 6.x - Build tool
+- **React Router** 7.x - Client-side routing
+- **Ant Design** 5.x - UI component library
+
+## Notes
+
+Login accepts any non-empty username/password (for demo purposes)
+User data stored in localStorage (would use secure backend in production...)
+Dashboard shows static demo data

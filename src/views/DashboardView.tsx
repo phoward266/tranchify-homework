@@ -1,6 +1,6 @@
 import { Layout, Table, Button, Space, Typography } from 'antd';
 import { LogoutOutlined } from '@ant-design/icons';
-// import { useNavigate } from 'react-router-dom'; // uncomment when router is set up
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../utils/auth';
 
 const { Header, Content } = Layout;
@@ -13,18 +13,15 @@ interface DataType {
 }
 
 export const DashboardView = () => {
-  // const navigate = useNavigate(); // uncomment when router is set up
+  const navigate = useNavigate();
   const user = auth.getUser();
 
   const handleLogout = () => {
     auth.logout();
-    // navigate('/login'); // uncomment when router is set up
-    console.log('Logged out - would navigate to login');
-    // for now, refresh the page to show login
-    window.location.reload();
+    navigate('/login');
   };
 
-  // Dummy data for the table?
+  // Dummy data for the table
   const data: DataType[] = [
     {
       id: 1,
