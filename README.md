@@ -50,14 +50,21 @@ The application will be available at `http://localhost:5173`
    ```
    src/
    ├── components/
-   │   ├── Layout/
-   │       └── ProtectedRoute.tsx
+   │   ├── Auth/
+   │   │   ├── ProtectedRoute.tsx
+   │   │   └── LoginForm.tsx
+   │   ├── Dashboard/
+   │   │   └── DataTable.tsx
+   │   └── Redirect/
+   │       └── Redirect.tsx
    ├── views/
    │   ├── LoginView.tsx
    │   ├── DashboardView.tsx
    │   └── NotFoundView.tsx
    ├── routes/
    │   └── router.tsx
+   ├── styles/
+   │   └── responsive.css
    ├── utils/
    │   └── auth.ts
    └── App.tsx
