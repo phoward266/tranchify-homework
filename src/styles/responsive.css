@@ -1,0 +1,70 @@
+/* Base styles for all screen sizes */
+.responsive-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  /* Login card responsive */
+  .login-card {
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  @media (min-width: 768px) {
+    .login-card {
+      width: 400px;
+    }
+  }
+  
+  /* Dashboard responsive */
+  .dashboard-header {
+    padding: 0 16px !important;
+    min-height: 64px;
+  }
+  
+  .dashboard-content {
+    padding: 16px;
+  }
+  
+  @media (min-width: 768px) {
+    .dashboard-header {
+      padding: 0 24px !important;
+    }
+    
+    .dashboard-content {
+      padding: 24px;
+    }
+  }
+  
+  /* Table responsive */
+  .responsive-table {
+    overflow-x: auto;
+  }
+  
+  @media (max-width: 576px) {
+    .ant-table {
+      font-size: 12px;
+    }
+    
+    .dashboard-title {
+      font-size: 16px !important;
+    }
+    
+    .welcome-text {
+      display: none;
+    }
+    
+    .logout-text {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start !important;
+    }
+  }
